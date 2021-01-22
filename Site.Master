@@ -1,0 +1,87 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="GrzesiukiewiczL4.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        <div class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top">
+            <div class="container">
+                <a class="navbar-brand" runat="server" href="~/">Grzesiukiewicz Lab 4</a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-collapse d-flex justify-content-start">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" runat="server" href="~/SG_MainPage">Strona główna</a>
+                        <asp:LoginView ID="LoginView2" runat="server">
+                            <LoggedInTemplate>
+                                <a class="nav-link active" runat="server" href="~/SG_UserPanel">Panel Użytkownika</a>
+                                <a class="nav-link active" runat="server" href="~/SG_AdminPanel">Panel Administratora</a>
+                            </LoggedInTemplate>
+                        </asp:LoginView>
+                    </div>
+                </div>
+                <div class="navbar-collapse d-flex justify-content-end">
+                    <asp:LoginView ID="LoginView1" runat="server">
+                        <AnonymousTemplate>
+                            <div class="navbar-nav">
+                                <a class="nav-link active" runat="server" href="~/SG_Login">Zaloguj</a>
+                                <a class="nav-link active" runat="server" href="~/SG_Register">Zarejestruj</a>
+                            </div>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <div class="navbar-nav">
+                                <a runat="server" href="~/SG_Logout" class="btn btn-secondary btn-sm">Wyloguj</a>
+                            </div>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Grzesiukiewicz Lab 4</p>
+            </footer>
+        </div>
+
+    </form>
+</body>
+</html>
