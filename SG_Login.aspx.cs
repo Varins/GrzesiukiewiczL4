@@ -12,8 +12,12 @@ namespace GrzesiukiewiczL4
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Membership.CreateUser("admin", "123_qaz");
+            //Roles.CreateRole("Admin");
+            //Roles.AddUserToRole("admin", "Admin");
             if (System.Web.HttpContext.Current.User != null && System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
                 Response.Redirect("~/SG_MainPage.aspx");
+
         }
     }
 }

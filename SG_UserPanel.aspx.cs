@@ -11,7 +11,8 @@ namespace GrzesiukiewiczL4
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!(HttpContext.Current.User != null && HttpContext.Current.User.Identity.IsAuthenticated))
+                Response.Redirect("~/SG_Login.aspx");
         }
     }
 }

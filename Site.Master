@@ -51,8 +51,15 @@
                         <asp:LoginView ID="LoginView2" runat="server">
                             <LoggedInTemplate>
                                 <a class="nav-link active" runat="server" href="~/SG_UserPanel">Panel Użytkownika</a>
-                                <a class="nav-link active" runat="server" href="~/SG_AdminPanel">Panel Administratora</a>
                             </LoggedInTemplate>
+                            <RoleGroups>
+                                <asp:RoleGroup Roles="admin">
+                                    <ContentTemplate>
+                                        <a class="nav-link active" runat="server" href="~/SG_UserPanel">Panel Użytkownika</a>
+                                        <a class="nav-link active" runat="server" href="~/SG_AdminPanel">Panel Administratora</a>
+                                    </ContentTemplate>
+                                </asp:RoleGroup>
+                            </RoleGroups>
                         </asp:LoginView>
                     </div>
                 </div>
