@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,8 +12,20 @@ namespace GrzesiukiewiczL4
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!(HttpContext.Current.User != null && HttpContext.Current.User.Identity.IsAuthenticated))
-                Response.Redirect("~/SG_Login.aspx");
+            
+        }
+
+        protected void SG_LinkButton_download_Command(object sender, CommandEventArgs e)
+        {
+            string SG_filename = (string)e.CommandArgument;
+            string SG_filepath = Page.MapPath("./SG_Pliki/") + SG_filename;
+            if (File.Exists(SG_filepath))
+            {
+                Response.AppendHeader("Content-Disposition", "attachment; filename=" + SG_filename);
+                Response.TransmitFile(SG_filepath);
+                Response.End();
+            }
+
         }
     }
 }

@@ -15,12 +15,39 @@ namespace GrzesiukiewiczL4
     {
 
         /// <summary>
-        /// SG_UserNameLabel control.
+        /// SG_username_label control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label SG_UserNameLabel;
+        protected global::System.Web.UI.WebControls.Label SG_username_label;
+
+        /// <summary>
+        /// SG_infoLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label SG_infoLabel;
+
+        /// <summary>
+        /// SG_userList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView SG_userList;
+
+        /// <summary>
+        /// SG_sourceUsers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SG_sourceUsers;
     }
 }
